@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SMACSS: Design Patterns that Make Life Easier</title>
+
+		<meta name="description" content="This is the official SMACSS class for Girl Develop It. Created by Ashley Chapokas">
+		<meta name="author" content="Girl Develop It">
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Presentation starts here -->
+			<div class="slides">
+			<!-- Opening Slide -->
+				<section>
+					<h1>SMACSS</h1>
+					<h3>Design Patterns that Make Life Easier</h2>
+					<p>
+						<small>Created by Ashley Chapokas / <a href="http://twitter.com/achapokas">@achapokas</a></small>
+					</p>
+				</section>
+			<!-- Opening Slide -->
+				<section>
+		          <h3>Slides</h3>
+		          <a href="http://bit.ly/1cDGsw8">http://bit.ly/1cDGsw8</a>
+        		</section>
+        	<!-- What is SMACSS? -->
+				<section>
+					<h2>What is SMACSS?</h2>
+					<h3><strong>S</strong>calable and Modular Architecture for CSS</h3>
+					<p> A way to examine your code design process and as a way to fit those rigid frameworks
+					into a flexible thought process</p>
+				</section>
+			<!-- Categorization -->
+			<!-- These rules train us to ask question during the development process. How are we going to code thing and why are we going to code them that way -->	
+			<!-- Must of the purpose is to codify patterns - things that repeat themselves within our design-->	
+			<!-- “Repetition results in less code, easier maintenance, and greater consistency in the user experience.” -->
+				<section>
+					<h2>SMACSS is Categorization</h2>
+					<p>By categorizing CSS rules, we begin to see patterns and can define better practice around those patterns</p>
+					<h3>Category Rules</h3>
+					<ul>
+						<li>Base</li>
+						<li>Layout</li>
+						<li>State</li>
+						<li>Module</li>
+					</ul>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Base rules = Defaults
+						```
+						* {
+							box-sizing: border-box;
+							padding: 0;
+							margin: 0;
+						}
+
+						html {
+							font-size: 100%;
+						}
+
+						h1, h2 ,h3 ,h4 {
+							text-transform: capitalize;
+							font-weight: 300;
+						}
+
+						a:hover {
+							color: #03C;
+						}
+
+						h1 {
+							font-size:2em;
+						}
+						```
+					</script>
+				</section>
+				<!--Single ID or HTML5 Selector - ie: header
+				Generalized layout Framework - ie: .l-grid-->	
+				<section data-markdown>
+					<script type= "text/template">
+						<h2>Layout Rules = Major Components</h2>
+
+						```
+						header, article, footer {
+							max-width: 960px;
+							margin: auto;
+						}
+
+						[class*='l-grid-'] {
+							float: left;
+							position: relative;
+  						}
+
+						.l-grid-4{
+							width: 33.33333333%
+						}
+						```
+					</script>
+				</section>
+				<section>
+				<h2>Layout Rules: HTML5</h2>
+					<img src="images/gentlewoman_smacss.png" alt="gentlewoman">
+				</section>
+				<section>
+				<h2>Layout Rules: Classes</h2>
+					<img src="images/gentlewomanClass.png" alt="gentlewoman">
+				</section>			
+				
+				<section data-markdown>
+					<script type= "text/template">
+					<h2>Module = Minor Components</h2>
+					<ul>
+						<li>Sits inside layout object</li>
+						<li>Should be able to exist as a standalone component</li>
+					</ul>
+					```
+					.module > h2 {
+						padding: 5px;
+					}
+					.module span{
+						padding: 5px;
+					}
+					```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type= "text/template">
+					<h2>Module: Avoid Child/Decendant Selectors</h2>
+					```
+					<div class= "pod">
+						<span>The library</span>
+						<img src="library_cate.png" alt= "Cate Le Bon"/>
+					</div>
+					```
+					```
+					/* The Display Module*/
+					.pod span{
+						padding: 10px;
+						background: url(icon.png);
+					}	
+					```
+					</script>
+				</section>	
+				<section data-markdown>
+					<script type="text/template">
+						<h2>Module: Selectors with Semantics</h2>
+						
+						```
+						<div class= "pod">
+							<span class="pod-title">The Library</span>
+							<img class="pod-items" src="library_cate.png" alt= "Cate le Bon"/>
+						</div>
+						```
+					</script>
+					<!--“By adding the classes to the elements, we have increased the semantics of what those elements mean and removed any ambiguity when it comes to styling them.” -->
+				</section>
+				<section>
+					<h2>Module: SubClassing</h2>
+					<img src="images/module.png" alt="module example"/>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Module: Subclassing</h2>
+					<p>If we have a module, in different sections of the site. The first instict is to use a parent element to reinforce the styles</p>
+					
+					```
+					ul.faces li a .img{
+						width: 150px;
+						height: 200px;
+						margin-top: 13px;
+					}
+
+					ul.faces li a:hover .img{
+						background-color: #e10f21;
+					}
+
+					ul.faces li.n1 a:hover .img {
+						background-color: #05488e;
+					}
+
+					```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Module: Subclassing</h2>
+					<p>Subclasses are applied to the module, to increase specificty, decreasing battles between selectors</p>
+
+					```
+					<a class= "module primary" href="#">
+						<div class="avatar"></div>
+					</a>
+					<a class="module secondary"> href="#">
+						<div class="avatar"></div>
+					</a>
+					```
+					
+					```
+					.module{
+						display:block;
+						width:150px;
+						height:200px;
+						margin-top:13px;
+					}
+					.primary:hover .avatar{
+						background-color: #e10f21;
+					}
+					.secondary:hover .avatar{
+						background-color: #05488e;
+					}
+
+					```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2>State Rules = Overrides</h2>
+						
+						```
+						<header class="is-collapsed">
+							<form>
+						        <div class="msg is-error">
+						            There is an error!
+						        </div>
+						        <label for="searchbox" class="is-hidden">Search</label>
+						        <input type="search" id="searchbox">
+						    </form>
+						</header>
+						```
+					</script>
+				</section>
+
+				<section>
+					<h2>Key Differences: State and Modules</h2>
+					<ol>
+						<li>State styles can apply to layout and/or module styles</li>
+						<li>Indicates a Javascript dependacy</li>
+					</ol>
+
+				</section>
+				<section>
+					<h2>Theme Rules: Visual Direction</h2>
+					<ul>
+						<li>Colors images and fonts</li>
+						<li>Multiple themes</li>
+						<li>Might affect states or modules</li>
+						<li>Theme prefix for classification ie: theme-</li>
+					</ul>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						<h2>Depth of Applicability</h2>
+						```
+						single .entry-header {
+							background-color: #F6F6F6;
+							width: 585px;
+						}
+
+						.single .entry-header img {
+							padding-bottom: 0;
+						 	margin: 0 auto;
+						}
+
+						.post .entry-author, .post .entry-author a {
+							font-family: "proxima-nova-alt", sans-serif;
+							font-style: normal;
+							font-size: 17px;
+						}
+
+						```
+
+					</script>
+					</code></pre>	
+				</section>
+
+				<section>
+					<h2>Major Concern</h2>
+					<ol>
+						<li>Relying on a defined HTML structure</li>
+						<li>As the string of selectors increases - so does the disconnection between the HTML and CSS</li>
+						<li>The depth of HTML to which the selectors apply is too deep</li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>Refactoring Time!</h1>
+					<a href="http://bit.ly/1G400Gz">Download Slides</a>
+				</section>
+				
+				<section data-markdown>
+					<script type="text/template">
+						<h2>Step 1</h2>
+						<h3>Change</h3>
+						```
+						<div class="right">
+							<a href="#/home" class="link-tgw">the gentlewoman</a>
+						</div>
+						```
+						<h3>To</h3>
+						```
+						<h1 class="right">
+							<a href="#/home" class="link-tgw">the gentlewoman</a>
+						</h1>	
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2>Step 2</h2>
+							<p>Remove #topnav</p>
+
+						```
+						#topnav .right {
+							position: absolute;
+							right: 20px;
+							top: 15px;
+						}
+						```
+					</script>
+				</section>
+				<section data-markdown>
+				<script type ="text/template">
+				<h2>Step 3</h2>
+				<p>Remove right</p>
+				```
+				<div class="right pane">
+					<h3>Reader of the Month</h3>
+					<a href="#/readers/amy-basil" class="item item-large item-image-inset item-clear">
+					<img src="photos/amy.jpg" class="inset">
+					<p>We meet documentary film producer and gentlewoman runner Amy Basil from London.</p>
+					</a>
+				</div>	
+				```
+				</script>
+				</section>
+				<section>
+					<h2>Step 4</h2>
+					<p> Check to see if there are any other additional styles that have changed</p>
+				</section>
+
+				<section data-markdown>
+				 	<pre><code data-trim>
+					<script type="text/template">
+						<h2>Repeat Steps 2-3: <code data-trim>.left </code> & <code data-trim>.center</code> </h2>
+
+						```
+						#topnav.left {
+							position: absolute;
+							right: 20px;
+							top: 15px;
+						}
+
+						#topnav.center {
+							padding: 9px 0 0;
+							font-size: 32px;
+							line-height: 1.3em;
+							max-height: 26px;
+						}	
+						```
+					</script>
+					</code></pre>
+				</section>
+				<section>
+					<h2>Let's take a look at <code data-trim>.right</code> and <code data-trim>.left </code>styles</h2>
+				</section>
+				<section>
+					<h1>Layout</h1>
+				</section>
+				<section>
+					<h2>Since we only have one hour..</h2>
+					<h3>Next Steps</h3>
+					<ul>
+						<li>Minimize the Depth of Applicability</li>
+						<li>Combine Classes - if possibile - to form reusable modules</li>	
+						<li>Expand Base Styles - add font-sizes and weights for each heading</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Read More about Modular CSS!</h2>
+					<a href="https://smacss.com/">
+					<img src= "http://www.fanpup.me/uploads/2/3/5/9/23592480/9572787.jpg?492" alt="math and science to the max">
+					</a>
+				</section>
+				<section>
+					<h2>Articles</h2>
+					<ul>
+						<li>
+							<a href="https://www.thinkbrownstone.com/2015/02/using-pattern-libraries-for-front-end-dev-efficiency-communication-structure/"><em>Using Pattern Libraries for Front End Dev: Efficiency Communication &amp; structure - Think Brownstone</em>
+							</a>
+						</li>
+						<li>	
+							<a href="http://www.smashingmagazine.com/2012/04/20/decoupling-html-from-css/"><em>Decoupling HTML from CSS - Johnathon Snook</em>
+							</a>
+						</li>
+						<li>	
+							<a href="http://bramsmulders.com/how-i-improved-my-workflow-with-smacss-sass.html"><em>How I improved my Workflow with SMACSS and sass</em>
+							</a>
+						</li>
+					</ul>	
+				</section>
+
+
+
+
+<!-- 
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section> -->
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
