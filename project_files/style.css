@@ -1,0 +1,1003 @@
+/*
+TGW APP, first tests
+*/
+
+
+html {
+}
+
+body {
+	font-family: Futura, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.4em;
+	margin: 0;
+	text-align: center;
+	
+	overflow: hidden;
+	xoverflow-y: auto;
+}
+
+* {
+	
+	-webkit-backface-visibility: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+input, textarea, select, a { 
+	outline: none; 
+}
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+/* Add base Heading styles */
+
+h1 {
+	font-size: 32px;
+	font-weight:;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+a {
+  outline: none !important;
+}
+
+hr {
+	border: none;
+	border-top: 2px solid #000;
+	margin: 0;
+}
+hr.hr_short {
+	border-top: 1px solid #000;
+	margin: 0 30%;
+}
+
+.printonly, .print.only {display: none;}
+
+
+
+/* TOPNAV -------------------------------------------------------- */
+
+
+#topnav {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	max-height: 35px;
+}
+#topnav a {
+	text-decoration: none;
+	color: #000000;
+}
+#topnav .left {
+	position: absolute;
+	left: 20px;
+	top: 15px;
+}
+
+#topnav .right {
+	position: absolute;
+	right: 20px;
+	top: 15px;
+}
+#topnav .center {
+	padding: 9px 0 0;
+	font-size: 32px;
+	line-height: 1.3em;
+	max-height: 26px;
+}
+#topnav .center a {
+	display: inline-block;
+	position: relative;
+	margin: 0 8px;
+	
+	-webkit-transition: opacity 0.2s ease-in-out, -webkit-transform 0.5s ease-in-out;  
+	-moz-transition: opacity 0.2s ease-in-out, -moz-transform 0.5s ease-in-out; 
+	-ms-transition: opacity 0.2s ease-in-out, -ms-transform 0.5s ease-in-out;
+	-o-transition: opacity 0.2s ease-in-out, -o-transform 0.5s ease-in-out;
+	transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
+	
+}
+#topnav .center a:hover,
+#topnav .center a.hover {
+	padding-bottom: 2px;
+	border-bottom: 3px solid #000;
+}
+#topnav .center a .the {
+	position: absolute;
+	left: -60px;
+	top: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s ease-in-out;  
+	-moz-transition: opacity 0.5s ease-in-out; 
+	-ms-transition: opacity 0.5s ease-in-out;
+	-o-transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s ease-in-out;
+}
+
+
+
+
+#topnav .left a.link-home,
+#topnav .left a.link-back {
+	padding: 0 7px 0 15px;
+	background-image: url(http://thegentlewoman.co.uk/site/wp-content/themes/tgw11-0.0/images/arrow_14px_right_2x.png);
+	background-repeat: no-repeat;
+	background-position: left 6px;
+	background-size: 10px 9px;
+	z-index: 300;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) { /* retina */
+	#topnav .left a.link-home, #topnav .left a.link-back {background-image: url(http://thegentlewoman.co.uk/site/wp-content/themes/tgw11-0.0/images/arrow_14px_left_2x.png); }
+}
+
+body.library_post #topnav .left a.link-home,
+body.names_post #topnav .left a.link-home,
+body.events_post #topnav .left a.link-home,
+body.readers_post #topnav .left a.link-home,
+body.runningclub #topnav .left a.link-home {
+	padding: 0 10px 0 0;
+	background-image: none;
+}
+
+#topnav .left a.link-home:hover span,
+#topnav .left a.link-back:hover span,
+#topnav .right a:hover {
+	border-bottom: 2px solid #000;
+}
+
+
+
+#topnav .center .link-library {
+	z-index: 5;
+}
+#topnav .center .link-names {
+	z-index: 4;
+}
+#topnav .center .link-socialities {
+	z-index: 3;
+}
+#topnav .center .link-magazine {
+	z-index: 2;
+}
+
+
+body.home.start #topnav {
+  opacity: 1;
+}
+
+
+body.home #topnav .link-home {
+	display: none;
+}
+
+body.home #topnav .link-library,
+body.home #topnav .link-names,
+body.home #topnav .link-socialities,
+body.home #topnav .link-magazine {
+	xopacity: 1;
+	x-webkit-animation: topnav_show 1s 1;
+}
+
+body.library #topnav a.link-library,
+body.library_post #topnav a.link-library {
+	-webkit-transform: translate3d(225px,0,0);
+	-moz-transform: translate3d(225px,0,0);
+	-ms-transform: translate3d(225px,0,0);
+	-o-transform: translate3d(225px,0,0);
+	transform: translate3d(225px,0,0);
+	
+	border-bottom: none !important;
+	cursor: default;
+}
+body.library #topnav a.link-library .the,
+body.library_post #topnav a.link-library .the {
+	opacity: 1;
+	z-index: 6;
+}
+body.library #topnav .link-names,
+body.library #topnav .link-socialities,
+body.library #topnav .link-magazine,
+body.library_post #topnav .link-names,
+body.library_post #topnav .link-socialities,
+body.library_post #topnav .link-magazine {
+	opacity: 0;
+	x-webkit-animation: topnav_hide 1s 1;
+}
+
+
+
+body.names #topnav .link-names,
+body.names_post #topnav .link-names {
+	-webkit-transform: translate3d(105px,0,0);
+	-moz-transform: translate3d(105px,0,0);
+	-ms-transform: translate3d(105px,0,0);
+	-o-transform: translate3d(105px,0,0);
+	transform: translate3d(105px,0,0);
+	
+	border-bottom: none !important;
+}
+body.names #topnav .link-names {
+	cursor: default;
+}
+body.names #topnav a.link-names .the,
+body.names_post #topnav a.link-names .the {
+	opacity: 1;
+	z-index: 6;
+}
+
+body.names #topnav .link-library,
+body.names #topnav .link-socialities,
+body.names #topnav .link-magazine,
+body.names_post #topnav .link-library,
+body.names_post #topnav .link-socialities,
+body.names_post #topnav .link-magazine {
+	opacity: 0;
+}
+
+
+
+
+body.socialities #topnav .link-socialities,
+body.events_post #topnav .link-socialities,
+body.readers_post #topnav .link-socialities,
+body.runningclub #topnav .link-socialities {
+	-webkit-transform: translate3d(-10px,0,0);
+	-moz-transform: translate3d(-10px,0,0);
+	-ms-transform: translate3d(-10px,0,0);
+	-o-transform: translate3d(-10px,0,0);
+	transform: translate3d(-10px,0,0);
+	
+	border-bottom: none !important;
+}
+body.socialities #topnav .link-socialities {
+	cursor: default;
+}
+body.socialities #topnav a.link-socialities .the,
+body.socialities_post #topnav a.link-socialities .the,
+body.events_post #topnav a.link-socialities .the,
+body.readers_post #topnav a.link-socialities .the,
+body.runningclub #topnav a.link-socialities .the {
+	opacity: 1;
+	z-index: 6;
+}
+body.socialities #topnav .link-library,
+body.socialities #topnav .link-names,
+body.socialities #topnav .link-magazine,
+body.events_post #topnav .link-library,
+body.events_post #topnav .link-names,
+body.events_post #topnav .link-magazine,
+body.readers_post #topnav .link-library,
+body.readers_post #topnav .link-names,
+body.readers_post #topnav .link-magazine,
+body.runningclub #topnav .link-library,
+body.runningclub #topnav .link-names,
+body.runningclub #topnav .link-magazine {
+	opacity: 0;
+}
+
+body.magazine #topnav .link-magazine {
+	-webkit-transform: translate3d(-145px,0,0);
+	-moz-transform: translate3d(-145px,0,0);
+	-ms-transform: translate3d(-145px,0,0);
+	-o-transform: translate3d(-145px,0,0);
+	transform: translate3d(-145px,0,0);
+	
+	border-bottom: none !important;
+	cursor: default;
+}
+body.magazine #topnav a.link-magazine .the,
+body.magazine_post #topnav a.link-magazine .the {
+	opacity: 1;
+	z-index: 6;
+}
+body.magazine #topnav .link-library,
+body.magazine #topnav .link-names,
+body.magazine #topnav .link-socialities {
+	opacity: 0;
+}
+
+
+
+
+
+body.library_post #topnav .center .link-library,
+/* body.names_post #topnav .center, */
+body.socialities_post #topnav .center a,
+body.magazine_post #topnav .center a,
+xbody.contact #topnav .center a,
+xbody.about #topnav .center a,
+body.runningclub #topnav .center {
+	opacity: 0;
+}
+
+
+body.library #topnav .link-back,
+body.names #topnav .link-back,
+body.socialities #topnav .link-back,
+body.magazine #topnav .link-back,
+body.home #topnav .link-back,
+body.contact #topnav .link-back,
+body.about #topnav .link-back {
+	display: none;
+}
+
+
+
+/* ON HOVER, SHOW MENU */
+
+body #topnav:hover a.link-library,
+body #topnav:hover a.link-names,
+body #topnav:hover a.link-socialities,
+body #topnav:hover a.link-magazine {
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	
+	opacity: 1 !important;
+}
+
+body #topnav:hover a.link-library .the,
+body #topnav:hover a.link-names .the,
+body #topnav:hover a.link-socialities .the,
+body #topnav:hover a.link-magazine .the {
+	opacity: 0;
+	z-index: 0;
+}
+
+body.library #topnav:hover a.link-library,
+body.names #topnav:hover a.link-names,
+body.socialities #topnav:hover a.link-socialities,
+body.magazine #topnav:hover a.link-magazine,
+body.magazine_post #topnav:hover a.link-magazine {
+	border-bottom: 3px solid #000 !important;
+}
+
+
+
+
+body.home.start #topnav {
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-in-out !important;  
+	-moz-transition: opacity 0.3s ease-in-out !important; 
+	-o-transition: opacity 0.3s ease-in-out !important;
+	transition: opacity 0.3s ease-in-out !important;
+}
+
+body.home.start.fadein #topnav {
+	opacity: 1;
+}
+
+
+
+
+#bg {
+	position: fixed;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+	z-index: 0;
+	
+	background-color: #fff;
+	
+	-webkit-transition: background-color 1s ease-in-out !important;  
+	-moz-transition: background-color 1s ease-in-out !important; 
+	-o-transition: background-color 1s ease-in-out !important;
+	transition: background-color 1s ease-in-out !important;
+}
+
+
+#bg .stripe-1,
+#bg .stripe-2,
+#bg .stripe-3 {
+	position: absolute;
+}
+#bg .stripe-1 {
+	width: 70px;
+	height: 100%;
+}
+#bg .stripe-2 {
+	width: 100%;
+	height: 70px;
+}
+#bg .stripe-3 {
+	width: 70px;
+	height: 70px;
+}
+
+
+
+/* SLIDING PANES (CONTENT TRANSITIONS) */
+
+#content_1 {
+	position: absolute;
+	left: 0; 
+	top: 0;
+	width: 100% !important;
+	height: 100% !important;
+	overflow: hidden;
+	overflow-y: auto !important;
+	-webkit-overflow-scrolling: touch;
+}
+
+#content_2 {
+	position: absolute;
+	left: 0; 
+	top: 0;
+	width: 100% !important;
+	height: 100% !important;
+	overflow: hidden;
+	overflow-y: auto !important;
+	-webkit-overflow-scrolling: touch;
+}
+
+.content {
+	xopacity: 0.5;
+}
+
+.content.active {
+	xopacity: 1;
+}
+
+
+
+
+
+/* START CHURN  ------------------------------------------------------ */
+
+body.home #slider-start {
+	xz-index: 200 !important;
+	background-color: #fff;
+	cursor: pointer;
+}
+body.home #slider-start.scrollto_home,
+body.home #slider-start .scrollto_home {
+	cursor: pointer;
+}
+body.home #slider-start .navi {
+	position: absolute;
+	bottom: 20px; left: 0; right: 0;
+	font-size: 32px;
+	line-height: 1em;
+	z-index: 2;
+}
+body.home #slider-start .navi a {
+	padding: 0 8px;
+}
+body.home #slider-start .navi a:hover {
+	border-bottom: 3px solid #000;
+}
+
+body.home #slider-start .hkwSlide {
+	text-align: center;
+}
+
+body.home #slider-start .hkwSlide img {
+	margin: 0 auto !important;
+}
+
+#subcontent_churn {
+	position: relative;
+	background-color: #f7f2ef;
+}
+
+.rs{
+	margin-top: 73px;
+}
+
+/* HOME  ------------------------------------------------------ */
+
+
+
+
+/* TGW9 HOME */
+
+#subcontent_homecontent .threepane {
+	padding: 0 10%;
+}
+#subcontent_homecontent .threepane.intro {
+	padding: 50px 10% 0;
+}
+#subcontent_homecontent .threepane:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#subcontent_homecontent .threepane .pane {
+	width: 33%;
+	float: left;
+	text-align: left;
+}
+#subcontent_homecontent .threepane .pane.center {
+	width: 34%;
+}
+
+#subcontent_homecontent .threepane .pane hr {
+	margin: 20px;
+}
+#subcontent_homecontent .threepane .pane h3 {
+	margin: 40px 20px 20px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	line-height: 1.3em;
+	border-bottom: 2px solid #000;
+}
+#subcontent_homecontent .threepane .pane h3.no_ul {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+#subcontent_homecontent .threepane .pane .item {
+	margin: 20px;
+	display: block;
+}
+#subcontent_homecontent .threepane .pane .item.item-clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#subcontent_homecontent .threepane .pane a:hover {
+	color: #e10f21;
+}
+#subcontent_homecontent .threepane .pane .item.item-large {
+	font-size: 18px;
+	line-height: 1.3em;
+}
+#subcontent_homecontent .threepane .pane .item.item-image-inset img.inset {
+	width: 30%;
+	float: left;
+}
+#subcontent_homecontent .threepane .pane .item.item-image-inset p {
+	margin-left: 36%;
+}
+#subcontent_homecontent .threepane .pane .item.item-image-full {
+	margin-top: 0;
+}
+#subcontent_homecontent .threepane .pane .item img.full {
+	width: 100%;
+	border: 2px solid #000;
+	margin-bottom: 10px;
+}
+#subcontent_homecontent .threepane .pane a.item:hover img.full {
+	border: 2px solid #02b2ff;
+}
+#subcontent_homecontent .threepane .pane a.item.item-image-full:hover {
+	color: #02b2ff;
+}
+#subcontent_homecontent .threepane .pane a.item.item-xmaswalk:hover img.full {
+	border: 2px solid #ccc996;
+}
+#subcontent_homecontent .threepane .pane a.item.item-xmaswalk.item-image-full:hover {
+	color: #ccc996;
+}
+#subcontent_homecontent .threepane .pane .item p {
+	margin-top: 0;
+}
+
+#subcontent_homecontent .threepane .pane .item.item-largesmall h4 {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.3em;
+}
+
+#subcontent_homecontent .threepane .pane .item.item-list {
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+	-moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-ms-column-count: 3;
+	-ms-column-gap: 20px;
+	-o-column-count: 3;
+	-o-column-gap: 20px;
+	column-count: 3;
+	column-gap: 20px;
+	
+}
+#subcontent_homecontent .threepane .pane .item.item-inline {
+	display: inline;
+	margin: 0;
+}
+#subcontent_homecontent hr.endpage {
+	margin: 50px 10% 0;
+}
+
+
+
+
+
+#subcontent_homecontent .threepane .pane a.item.arrow {
+	padding: 0 0 0 15px;
+	background-image: url(../images/arrow_14px_right.png);
+	background-repeat: no-repeat;
+	background-position: left 6px;
+	background-size: 10px 9px;
+	z-index: 300;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) { /* retina */
+	#subcontent_homecontent .threepane .pane a.item.arrow {background-image: url(http://thegentlewoman.co.uk/site/wp-content/themes/tgw11-0.0/images/arrow_14px_right_2x.png); }
+}
+
+
+/* ISSUES */
+
+
+.magazine-inner {
+	padding: 50px 10% 0;
+}
+
+body.magazine #bg .stripe-1 {
+	left: 0;
+	top: 0;
+	background-color: #f8f3f0;
+	/*
+	-webkit-animation-name: fadein_quarter_2;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	*/
+}
+body.magazine #bg .stripe-2 {
+	right: 0;
+	width: 70px;
+	top: 0;
+	height: 100%;
+	background-color: #f8f3f0;
+	/*
+	-webkit-animation-name: fadein_quarter_3;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	*/
+}
+
+.magazine-inner .bookmarks {
+	position: absolute;
+	left: 80px;
+	top: 50px;
+	width: 200px;
+	text-align: left;
+	z-index: 20;
+}
+.magazine-inner .bookmarks span {
+	display: block;
+	cursor: pointer;
+}
+.magazine-inner .bookmarks span:hover {
+	color: #e10f21;
+}
+
+.magazine-inner h2 {
+	font-size: 32px;
+	line-height: 1em;
+	margin: 0;
+}
+.magazine-inner .text {
+	font-size: 24px;
+	line-height: 1.5em;
+	margin: 0 10%;
+}
+.magazine-inner .btn {
+	font-size: 24px;
+	line-height: 1.3em;
+	margin: 0 10%;
+}
+.magazine-inner .btn a {
+	border: 3px solid #000;
+	padding: 5px 12px;
+}
+.magazine-inner .btn a:hover {
+	border: 3px solid #000 !important;
+	background-color: #000;
+	color: #fff !important;
+}
+
+
+
+
+
+
+.magazine-inner #subcontent_magazine {
+	margin-bottom: 150px;
+}
+.magazine-inner #subcontent_magazine h2 {
+	cursor: pointer;
+}
+.magazine-inner #subcontent_magazine h2:hover {
+	color: #000;
+}
+.magazine-inner #subcontent_magazine .description {
+	position: relative;
+}
+.magazine-inner #subcontent_magazine .link-back-issues {
+	position: absolute;
+	right: 0;
+	top: 0;
+	
+	margin: 0;
+	margin-right: -10%;
+	z-index: 20;
+	cursor: pointer;
+	
+	color: #000;
+}
+.magazine-inner #subcontent_magazine .link-about {
+	position: absolute;
+	right: 0;
+	top: 20px;
+
+	margin: 0;
+	margin-right: -10%;
+	z-index: 20;
+	cursor: pointer;
+	
+	color: #000;
+}
+
+
+
+.magazine-inner #subcontent_backissues {
+	margin-bottom: 150px;
+}
+.magazine-inner #subcontent_backissues h2 {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #000;
+	max-width: 714px;
+	margin: 0 auto 15px;
+}
+
+
+
+
+ul.issues {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 750px;
+}
+ul.issues li {
+	width: 156px;
+	height: 230px !important;
+	overflow: hidden;
+	display: inline-block;
+	padding: 15px;
+}
+ul.issues li a {
+	padding: 0;
+	display: block;
+	position: relative;
+	color: #000;
+	font-size: 14px;
+}
+ul.issues li a .img {
+	width: 156px;
+	height: 200px;
+}
+ul.issues li a img {
+	width: 156px;
+	height: 200px;
+}
+ul.issues li a h4 {
+	margin: 10px 0 0;
+	padding-top: 5px;
+	
+	font-size: 16px;
+	line-height: 1.3em;
+	opacity: 0;
+	
+	-webkit-transition: opacity 0.2s ease-in-out !important;  
+	-moz-transition: opacity 0.2s ease-in-out !important; 
+	-o-transition: opacity 0.2s ease-in-out !important;
+	transition: opacity 0.2s ease-in-out !important;
+}
+ul.issues li a:hover {
+}
+ul.issues li a:hover h4,
+ul.issues li.active a h4 {
+	opacity: 1;
+}
+
+
+
+
+
+
+
+.magazine-inner #subcontent_about {
+	margin-bottom: 150px;
+}
+
+.magazine-inner #subcontent_about h2 {
+	border-bottom: 2px solid #000;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+
+
+
+/* ABOUT standalone page -------- */
+
+
+body.about #bg {
+	xbackground-color: #f8f1e1;
+}
+.about_post-inner {
+	margin: 100px 20% 70px;
+	
+	text-align: center;
+	
+	font-size: 24px;
+	line-height: 1.5em;
+}
+.about_post-inner h2 {
+	border-bottom: 2px solid #000;
+	padding: 0 0 20px;
+	text-align: center;
+	margin: 0 -10%;
+	
+	font-size: 32px;
+	line-height: 1em;
+}
+
+
+
+
+/* FOOTER -------- */
+
+footer.logo {
+	padding: 50px 0;
+}
+
+footer.logo a.logo,
+footer.logo span.logo {
+	display: inline-block;
+	margin: 10px 0;
+	width: 132px;
+	height: 39px;
+	overflow: hidden;
+	line-height: 999px;
+	background-image: url(../images/footer_logo_black.png);
+	background-repeat: no-repeat;
+	background-position: no-repeat;
+	background-size: 132px 39px;
+}
+
+footer.logo a.link-back {
+	padding: 0 7px 0 15px;
+	background-image: url(../images/arrow_14px_left.png);
+	background-repeat: no-repeat;
+	background-position: left 6px;
+	background-size: 10px 9px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) { /* retina */
+	footer.logo a.logo, footer.logo span.logo {background-image: url(http://thegentlewoman.co.uk/site/wp-content/themes/tgw11-0.0/
+	images/footer_logo_black_2x.png); }
+	footer.logo a.link-back {background-image: url(http://thegentlewoman.co.uk/site/wp-content/themes/tgw11-0.0/images/arrow_14px_left_2x.png); }
+}
+
+
+@media (max-width: 768px) {
+	
+	body.home #topnav .right .link-tgw {
+		display: none !important;
+	}
+	
+	
+	#subcontent_homecontent .threepane {
+		padding: 0 30px;
+	}
+	#subcontent_homecontent .threepane.intro {
+		padding: 50px 30px 0;
+	}
+	
+}
+
+
+
+
+@media (max-width: 420px) {
+
+	
+	.hide_phone {
+		display: none;
+	}
+	
+	
+	#topnav .left {
+		left: 10px;
+		top: 5px;
+	}
+	
+	#topnav .right {
+		right: 10px;
+		top: 5px;
+	}
+	#topnav {
+	}
+	#topnav .center {
+		display: none;
+		/*
+		background-color: #f6e0d4;
+		-webkit-animation: background_skin 20s infinite;
+		-moz-animation: background_skin 20s infinite;
+		-ms-animation: background_skin 20s infinite;
+		-o-animation: background_skin 20s infinite;
+		animation: background_skin 20s infinite;
+		padding: 20px;
+		min-height: 260px;
+		margin: 10px;
+		*/
+		
+		font-size: 18px;
+	}
+	body.home #topnav .center {
+		display: block;
+	}
+	#topnav .center a {
+		/*
+		display: block;
+		padding: 10px 0;
+		border-bottom: 3px solid #000;
+		margin: 0;
+		*/
+		margin: 0 3px;
+	}
+	#topnav .center a:first-child {
+		/*border-top: 3px solid #000;*/
+	}
+	#topnav .center a.hover {
+	}
+
+	
+	#subcontent_cross {
+		margin-top: 30px;
+	}
+	
+	#subcontent_homecontent .threepane .pane {
+		width: auto;
+		float: none;
+	}
+	#subcontent_homecontent .threepane .pane.center {
+		width: auto;
+	}
+
+	#subcontent_homecontent .threepane {
+		padding: 0 10px;
+	}
+	#subcontent_homecontent .threepane.intro {
+		padding: 30px 10px 0;
+	}
+	
+	#subcontent_homecontent .threepane .pane .item.item-image-inset img.inset {
+		padding-bottom: 20px;
+	}
+
+	#subcontent_homecontent .threepane.intro .pane .item:after {
+	    content: ".";
+	    display: block;
+	    height: 0;
+	    clear: both;
+	    visibility: hidden;
+	}
+}
+
+
+
