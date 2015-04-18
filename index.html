@@ -219,7 +219,7 @@
 					<h5>Before SMACSS</h5>
 					```
 					<ul class="faces">
-						<li>
+						<li class="n1">
 							<a href=""><img src="images/bjork" alt="bjork"/></a>
 						</li>
 					</ul>
@@ -228,12 +228,12 @@
 					```
 					<ul class="avatar-module">
 						<li class= "avatar-inline">
-							<a class="primary" href="">
+							<a class="avatar-link-primary" href="">
 							<img class="avatar" src="images/bjork" alt="bjork"/>
 							</a>
 						</li>
 						<li class="avatar-inline">
-							<a class="secondary" href="#">
+							<a class="avatar-link-secondary" href="#">
 							<img class="avatar" src="images/beyonce" alt="beyonce"/>
 							</a>
 						</li>
@@ -241,7 +241,7 @@
 					```
 					</script>
 				</section>	
-					<section data-markdown>
+				<section data-markdown>
 					<script type="text/template">
 						<h2>Module: Subclassing</h2>
 						<h5>Before SMACSS</h5>		
@@ -265,14 +265,13 @@
 							height:200px;
 							margin-top:13px;
 						}
-						.primary:hover .avatar{
+						.avatar-link-primary:hover .avatar{
 							background-color: #e10f21;
 						}
 
 						```
 						</script>
 				</section>
-
 				<section data-markdown>
 					<script type="text/template">
 						<h2>State Rules = Overrides</h2>
