@@ -216,37 +216,61 @@
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Module: Subclassing</h2>
-					<p>Subclasses are applied to the module, to increase specificity, decreasing battles between selectors</p>
-
+					<h5>Before SMACSS</h5>
 					```
-					<li class= "inline"
-						<a class="primary" href="">
-						<img class="avatar" src="images/bjork" alt="bjork"/>
-						</a>
-					</li>
-					<li class="inline">
-						<a class="secondary" href="#">
-						<img class="avatar" src="images/beyonce" alt="beyonce"/>
-						</a>
-					</li>
+					<ul class="faces">
+						<li>
+							<a href=""><img src="images/bjork" alt="bjork"/></a>
+						</li>
+					</ul>
 					```
-					
+					<h5>After SMACSS</h5>
 					```
-					.avatar{
-						display:block;
-						width:150px;
-						height:200px;
-						margin-top:13px;
-					}
-					.primary:hover .avatar{
-						background-color: #e10f21;
-					}
-					.secondary:hover .avatar{
-						background-color: #05488e;
-					}
-
+					<ul class="avatar-module">
+						<li class= "avatar-inline">
+							<a class="primary" href="">
+							<img class="avatar" src="images/bjork" alt="bjork"/>
+							</a>
+						</li>
+						<li class="avatar-inline">
+							<a class="secondary" href="#">
+							<img class="avatar" src="images/beyonce" alt="beyonce"/>
+							</a>
+						</li>
+					</ul>
 					```
 					</script>
+				</section>	
+					<section data-markdown>
+					<script type="text/template">
+						<h2>Module: Subclassing</h2>
+						<h5>Before SMACSS</h5>		
+						```
+						ul.faces li a .img{
+							width: 150px;
+							height: 200px;
+							margin-top: 13px;
+						}
+
+						ul.faces li a:hover .img{
+							background-color: #e10f21;
+						}
+
+						```
+						<h5>After SMACSS</h5>
+						```
+						.avatar{
+							display:block;
+							width:150px;
+							height:200px;
+							margin-top:13px;
+						}
+						.primary:hover .avatar{
+							background-color: #e10f21;
+						}
+
+						```
+						</script>
 				</section>
 
 				<section data-markdown>
