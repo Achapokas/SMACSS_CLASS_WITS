@@ -398,7 +398,22 @@
 					<h2>Let's take a look at <code data-trim>.right</code> and <code data-trim>.left </code>styles</h2>
 				</section>
 				<section>
-					<h1>Layout</h1>
+					<h2>Let's continue removing #topnav</h2>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Unless it looks like this.</h2>
+
+					```
+						body.home.start #topnav {
+							opacity: 0;
+							-webkit-transition: opacity 0.3s ease-in-out !important;  
+							-moz-transition: opacity 0.3s ease-in-out !important; 
+							-o-transition: opacity 0.3s ease-in-out !important;
+							transition: opacity 0.3s ease-in-out !important;
+						}
+					```
+					</script>
 				</section>
 				<section>
 					<h2>Since we only have one hour..</h2>
